@@ -36,6 +36,8 @@ scripts\setup.cmd
 
 The last line printed is: `Ready. Open dev or qa in VS Code.`
 
+You will see some yellow `npm warn deprecated` lines while the packages install. They are normal and you can ignore them.
+
 If a tool is missing, the script stops and tells you what to install. Install it, open a new terminal and run the same command again. It is safe to run more than once.
 
 **On the day**
