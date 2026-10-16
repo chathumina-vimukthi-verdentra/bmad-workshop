@@ -186,7 +186,7 @@ grep -n "Review\]" _bmad-output/initiative-fac-factor-library/epic-browse-factor
 ```
 
 ```bash
-cat _bmad-output/initiative-fac-factor-library/deferred-work.md
+cat _bmad-output/initiative-fac-factor-library/deferred-work.md 2>/dev/null || echo "No deferred work: the review deferred nothing."
 ```
 
 ```bash
@@ -211,7 +211,7 @@ Files created or changed:
 - `apps/api/src/modules/factors/` (`types.ts`, `repository.ts`, `service.ts`, `routes.ts`), `apps/api/src/app.ts`, `apps/api/test/factors.test.ts`.
 - `apps/web/src/pages/FactorLibraryPage.tsx`, `apps/web/src/api/factors.ts`, `apps/web/src/App.tsx`, `apps/web/src/styles.css`.
 - `_bmad-output/initiative-fac-factor-library/walkthrough-list-seeded-factors/` with the narrative and the log.
-- `_bmad-output/initiative-fac-factor-library/deferred-work.md`.
+- `_bmad-output/initiative-fac-factor-library/deferred-work.md`, only if the review deferred findings. In the dry run it deferred none, so the file did not exist.
 
 The reference output is `reference/dev-finished`. The reference build has one deliberate gap, the invalid filter value, that the walkthrough and the review find. Your commit ids and wording will differ.
 
