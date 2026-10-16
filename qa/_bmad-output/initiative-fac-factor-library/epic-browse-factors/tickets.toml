@@ -1,0 +1,24 @@
+# tickets.toml: the planned tickets of epic-browse-factors, in build order.
+# Refer to an entry as 1.<id> from outside this epic. `/bmad-build 1.1` builds entry 1 of epic 1.
+
+[[entry]]
+id = 1
+type = "story"
+title = "List seeded factors"
+description = "Seeds the six factors in memory and adds GET /api/v1/factors with scope and activityType filters, plus the Factor library table on the Factors tab, as the tracer path through API and web."
+verify = "The seven acceptance criteria (a) to (g) in the epic's Done when each have a passing API test or a stated manual check, and the Factors tab shows six rows with a scope badge and a version chip."
+covers = ["FAC.FR-1", "FAC.FR-2"]
+after = []
+hitl = false
+risk = "low"
+
+[[entry]]
+id = 2
+type = "story"
+title = "Factor detail by id"
+description = "Adds GET /api/v1/factors/:id returning the full factor, or 404 problem+json for an unknown id."
+verify = "A known id returns the full factor with kgCo2ePerUnit as a string, and an unknown id returns 404 problem+json with type, title, status and detail."
+covers = ["FAC.FR-3"]
+after = [1]
+hitl = false
+risk = "low"

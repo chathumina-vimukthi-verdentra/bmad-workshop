@@ -1,0 +1,80 @@
+:root {
+  --color-navy: #0f3567;
+  --color-green: #70ac46;
+  --color-blue: #3b90e5;
+  --color-amber: #f8b702;
+  --color-text: #181818;
+  --color-surface: #f5f7fa;
+  --color-border: #dde3ec;
+  --color-white: #ffffff;
+  --radius-card: 8px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --font-body: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background: var(--color-surface);
+}
+
+.header {
+  background: var(--color-navy);
+  color: var(--color-white);
+  padding: var(--space-3) var(--space-4);
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.tabs {
+  display: flex;
+  gap: var(--space-2);
+  padding: 0 var(--space-4);
+  background: var(--color-white);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.tab {
+  font: inherit;
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  padding: var(--space-3);
+  cursor: pointer;
+  color: var(--color-text);
+}
+
+.tab-active {
+  border-bottom-color: var(--color-green);
+  color: var(--color-navy);
+  font-weight: 600;
+}
+
+.main {
+  padding: var(--space-4);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.card {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: var(--space-4);
+}
+
+.placeholder {
+  color: #5b6573;
+}

@@ -1,0 +1,23 @@
+# tickets.toml: the planned tickets of epic-footprint-summary, in build order.
+
+[[entry]]
+id = 1
+type = "story"
+title = "Calculate emissions for one activity"
+description = "Adds GET /api/v1/footprint that turns each activity into a line with kgCo2e from its pinned factor, rounded to 2 decimal places half up."
+verify = "1000 litres of diesel gives kgCo2e 2700.00, 10.333 kWh of grid electricity gives 2.14, and a missing siteId or period returns 400 problem+json."
+covers = ["FPS.FR-1"]
+after = []
+hitl = false
+risk = "medium"
+
+[[entry]]
+id = 2
+type = "story"
+title = "Footprint summary by scope with Indicative status"
+description = "Adds the totals by scope in kg and tonnes, the Indicative status, and the totals card and lines table on the Footprint summary page."
+verify = "The summary has totalsKgCo2e and totalsTCo2e with scope1, scope2 and total, status is Indicative, and the page shows the card with the status chip."
+covers = ["FPS.FR-2", "FPS.FR-3"]
+after = [1]
+hitl = false
+risk = "low"

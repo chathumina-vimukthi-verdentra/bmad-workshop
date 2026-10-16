@@ -1,0 +1,23 @@
+# tickets.toml: the planned tickets of epic-record-activities, in build order.
+
+[[entry]]
+id = 1
+type = "story"
+title = "Record an activity"
+description = "Adds POST /api/v1/activities that validates the input, pins the current factor and stores one activity, plus the form on the Record activity page."
+verify = "A valid request returns 201 with ACT-0001 and the pinned factor id, each invalid field gives a 422 error entry, and nothing is stored when the request is invalid."
+covers = ["ACT.FR-1", "ACT.FR-2"]
+after = []
+hitl = false
+risk = "medium"
+
+[[entry]]
+id = 2
+type = "story"
+title = "List activities and show validation messages"
+description = "Adds GET /api/v1/activities for a site and period, and shows the list, the empty state and the field messages on the Record activity page."
+verify = "The list returns two items for depot-leeds in 2026-03, count 0 for no match, and the page shows each error message next to its field."
+covers = ["ACT.FR-3", "ACT.FR-2"]
+after = [1]
+hitl = false
+risk = "low"

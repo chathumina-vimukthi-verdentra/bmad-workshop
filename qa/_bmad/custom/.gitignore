@@ -1,0 +1,2 @@
+# This folder holds shared BMad overrides. config.user.toml is committed on purpose in this workshop.
+# It sets the active initiative for everyone, so nobody has to switch it by hand.

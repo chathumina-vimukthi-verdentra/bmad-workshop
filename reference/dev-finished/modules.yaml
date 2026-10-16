@@ -1,0 +1,27 @@
+# In Carbon Hub this file generates CODEOWNERS and the architecture-test config.
+version: 1
+modules:
+  - slug: factors
+    code: FAC
+    owning_squad: squad-a
+    paths: ["apps/api/src/modules/factors/**"]
+    may_call: []
+    instructions: .github/instructions/factors.instructions.md
+  - slug: activities
+    code: ACT
+    owning_squad: squad-a
+    paths: ["apps/api/src/modules/activities/**"]
+    may_call: [factors]       # current factor and unit check, through the factors service (AD-1, AD-6)
+    status: later
+  - slug: footprint
+    code: FPS
+    owning_squad: squad-b
+    paths: ["apps/api/src/modules/footprint/**"]
+    may_call: [activities]    # activities with the pinned factor resolved (AD-1, AD-6)
+    status: later
+apps:
+  - name: api
+    path: apps/api/**
+    composition_root: ["src/app.ts"]
+  - name: web
+    path: apps/web/**

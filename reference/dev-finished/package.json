@@ -1,0 +1,14 @@
+{
+  "name": "carbon-hub-lite",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Carbon Hub Lite: workshop starter",
+  "workspaces": ["apps/api", "apps/web"],
+  "scripts": {
+    "dev:api": "npm run dev -w apps/api",
+    "dev:web": "npm run dev -w apps/web",
+    "test": "npm test -w apps/api",
+    "build": "npm run build -w apps/web"
+  },
+  "engines": { "node": ">=20" }
+}

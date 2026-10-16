@@ -1,0 +1,13 @@
+node_modules/
+dist/
+coverage/
+*.log
+.DS_Store
+.env
+_bmad/render/
+_bmad-output/**/review-*.md
+_bmad-output/**/reconcile-*.md
+
+test-results/
+playwright-report/
+blob-report/
