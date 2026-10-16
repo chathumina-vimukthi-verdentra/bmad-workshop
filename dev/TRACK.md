@@ -16,7 +16,15 @@ You do. The human decision points are:
 
 ## Time box
 
-65 minutes: build 30, walkthrough 15, code review 20. The skills do the typing. Your time goes to reading.
+58 minutes: build 30, walkthrough 10, code review 18. The skills do the typing. Your time goes to reading. The times are estimates, because live model runs vary.
+
+| Command | Estimate | Clock |
+|---|---|---|
+| `/bmad-build 1.1` | 30 min | 0:10 to 0:40 |
+| `/bmad-walkthrough` | 10 min | 0:40 to 0:50 |
+| `/bmad-code-review` | 18 min | 0:50 to 1:08 |
+
+Checkpoint: if Build is not finished by 0:45 on the clock, copy what you need from `reference/dev-finished` and move on. The QA people work on their own folder next, so nobody waits for you.
 
 ## Before you start
 

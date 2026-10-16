@@ -8,16 +8,33 @@ All emission factor numbers in this workshop are fictional sample values, not re
 
 Carbon Hub Lite lets a member record fuel and electricity use for a site and a reporting period, and see an indicative footprint. In this workshop the work is ticket 1.1: listing the seeded emission factors (API and web page). BMad and TEA are already installed and set up. There is nothing to install by hand in the session.
 
-## The two tracks
+## The session: one presenter, two hours
 
-| Track | Folder | You run | Time |
-|---|---|---|---|
-| Developer | `dev` | `/bmad-build 1.1`, `/bmad-walkthrough`, `/bmad-code-review` | 65 min |
-| QA | `qa` | `/bmad-tea-framework`, `/bmad-tea-test-design`, `/bmad-tea-automate` | 30 min |
+One presenter runs the session and the steps run one after another. Developers do steps 1 to 3 and QA watch. QA do steps 4 to 6 and developers watch. The `qa` folder starts with ticket 1.1 already built and reviewed, so QA never waits on anything. The times below are estimates, because live model runs vary.
 
-The Developer track starts with ticket 1.1 planned and not built. The QA track starts with ticket 1.1 already built and reviewed, so QA does not wait for the developers and the two tracks can run in parallel. Read `TRACK.md` in your folder.
+| Clock | Part | Who does it | Folder | Minutes |
+|---|---|---|---|---|
+| 0:00 to 0:10 | Welcome and context | everyone | | 10 |
+| 0:10 to 0:40 | 1 Build: `/bmad-build 1.1` | Developers | `dev` | 30 |
+| 0:40 to 0:50 | 2 Walkthrough: `/bmad-walkthrough` | Developers | `dev` | 10 |
+| 0:50 to 1:08 | 3 Code review: `/bmad-code-review` | Developers | `dev` | 18 |
+| 1:08 to 1:16 | 4 TEA Framework: `/bmad-tea-framework` | QA | `qa` | 8 |
+| 1:16 to 1:24 | 5 TEA Test design: `/bmad-tea-test-design` | QA | `qa` | 8 |
+| 1:24 to 1:38 | 6 TEA Automate: `/bmad-tea-automate` | QA | `qa` | 14 |
+| 1:38 to 1:46 | Wrap-up and questions | everyone | | 8 |
+| 1:46 to 2:00 | Reserve | | | 14 |
+
+Planned time is 106 minutes plus a 14 minute reserve. The two hours are a hard limit. Read `TRACK.md` in your folder: `dev/TRACK.md` or `qa/TRACK.md`.
 
 Each track has one reference folder: `reference/dev-finished` and `reference/qa-finished`. They are read-only guides to compare with, or to copy files from if you are stuck. Do not open them as your workspace.
+
+### If you are behind
+
+Cut in this order:
+
+1. Walkthrough: show the reference walkthrough (in `reference/dev-finished`) instead of running it.
+2. Code review: run it to the triage list, then apply the reference patch.
+3. TEA Test design: read the reference test design (in `reference/qa-finished`) instead of running it.
 
 ## Open the right folder
 

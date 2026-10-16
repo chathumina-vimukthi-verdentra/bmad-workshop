@@ -16,7 +16,15 @@ You do. The human decision points are:
 
 ## Time box
 
-30 minutes. The three commands take most of it. Read the test design while the tests are written. This track can run in parallel with the Developer track.
+30 minutes: framework 8, test design 8, automate 14. The times are estimates, because live model runs vary. Read the test design while the tests are written. This folder starts with ticket 1.1 already built and reviewed, so you never wait for the developers.
+
+| Command | Estimate | Clock |
+|---|---|---|
+| `/bmad-tea-framework` | 8 min | 1:08 to 1:16 |
+| `/bmad-tea-test-design` | 8 min | 1:16 to 1:24 |
+| `/bmad-tea-automate` | 14 min | 1:24 to 1:38 |
+
+Checkpoint: if a command is not finished when its time is up, copy what you need from `reference/qa-finished` and move on.
 
 ## Before you start
 
