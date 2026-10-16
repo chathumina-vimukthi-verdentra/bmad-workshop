@@ -38,7 +38,7 @@ One capability: recording and listing activities, in module `activities` and on 
 - spec - `_bmad-output/initiative-act-activity-entry/prd-act-activity-entry/prd-act-activity-entry.md`, sections 3 and 10
 - constraint - `_bmad-output/prd-carbon-lite/prd-carbon-lite.md`, section 5, CLT.NFR-1 to CLT.NFR-5
 - constraint - `_bmad-output/architecture-carbon-lite/architecture-carbon-lite.md`, AD-1, AD-2, AD-4, AD-6, AD-7
-- design - `_bmad-output/initiative-fac-factor-library/ux-fac-factor-library/EXPERIENCE.md`, screen Record activity
+- design - `_bmad-output/initiative-act-activity-entry/ux-act-activity-entry/EXPERIENCE.md` and `DESIGN.md`, screen Record activity (inherits the shared design in `ux-fac-factor-library/DESIGN.md`)
 
 ## Notes
 

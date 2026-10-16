@@ -47,7 +47,9 @@ The `activities` module and the Activities tab. Reads factors only through the F
 - parent - `_bmad-output/initiative-act-activity-entry/initiative-act-activity-entry.md`, covers ACT.FR-1 to ACT.FR-3
 - spec - `_bmad-output/initiative-act-activity-entry/prd-act-activity-entry/prd-act-activity-entry.md`, sections 3, 4, 5 and 10
 - constraint - `_bmad-output/architecture-carbon-lite/architecture-carbon-lite.md`, AD-1, AD-2, AD-4, AD-6, AD-7
-- design - `_bmad-output/initiative-fac-factor-library/ux-fac-factor-library/EXPERIENCE.md`, screen Record activity
+- design - `_bmad-output/initiative-act-activity-entry/ux-act-activity-entry/EXPERIENCE.md`, screen Record activity
+- design - `_bmad-output/initiative-act-activity-entry/ux-act-activity-entry/DESIGN.md`, what this screen adds to the shared design
+- design - `_bmad-output/initiative-act-activity-entry/ux-act-activity-entry/mockups/index.html`, the clickable prototype
 
 ## Notes
 

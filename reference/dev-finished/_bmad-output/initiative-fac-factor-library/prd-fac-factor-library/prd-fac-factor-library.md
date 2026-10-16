@@ -88,7 +88,7 @@ The service interface also offers `getById(id)` and `getCurrentForActivityType(a
 
 ## 6. Web
 
-A "Factor library" screen with a table, a scope badge, a version chip and the "Workshop sample values" notice. See `ux-fac-factor-library/EXPERIENCE.md` and `ux-fac-factor-library/DESIGN.md` in this initiative.
+A "Factor library" screen with a table, a scope badge, a version chip and the "Workshop sample values" notice. See `ux-fac-factor-library/EXPERIENCE.md` (this screen) and `ux-fac-factor-library/DESIGN.md` (the shared design) in this initiative.
 
 ## 7. Non-goals
 

@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Footprint summary: Carbon Hub Lite prototype</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="app-header">
+  <div class="header-inner">
+    <div class="brand">
+      <svg class="leaf" width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path fill="#70AC46" d="M20 3C9 3 4 9 4 15c0 1.6.4 3 1.2 4.2C6 15 9 11.500 14 9.500 10.500 12 8 15.500 7.200 20.300c.9.500 2 .7 3.100.7C17 21 21 15 20 3z"/></svg>
+      <span class="brand-name">Carbon Hub Lite</span>
+    </div>
+    <nav class="tabs" role="tablist" aria-label="Main">
+      <a role="tab" href="#" id="tab-footprint" aria-selected="true">Footprint</a>
+    </nav>
+    <div class="org"><span class="org-name">Nair Logistics</span><span class="avatar" aria-label="Priya Nair">PN</span></div>
+  </div>
+</header>
+
+<main class="page">
+
+
+  <!-- Screen 3: Footprint summary (FPS) -->
+  <section id="screen-footprint" class="screen">
+    <div class="page-head">
+      <h1 tabindex="-1">Footprint summary</h1>
+      <p class="lede">Depot 1, 2026-03</p>
+    </div>
+    <div class="notice notice-info" role="note"><span class="ni" aria-hidden="true">i</span><span>Every figure is Indicative in this workshop. Verified figures need certification, which is out of scope.</span></div>
+    <div class="cards3">
+      <article class="card summary s1">
+        <h2>Scope 1</h2>
+        <p class="big">4.704 <span class="unit">tCO2e</span></p>
+        <p class="kg">4,704.00 kgCO2e</p>
+        <span class="pill indicative" title="Indicative: calculated from sample factors, not certified."><i></i>Indicative</span>
+      </article>
+      <article class="card summary s2">
+        <h2>Scope 2</h2>
+        <p class="big">3.105 <span class="unit">tCO2e</span></p>
+        <p class="kg">3,105.00 kgCO2e</p>
+        <span class="pill indicative" title="Indicative: calculated from sample factors, not certified."><i></i>Indicative</span>
+      </article>
+      <article class="card summary st">
+        <h2>Total</h2>
+        <p class="big">7.809 <span class="unit">tCO2e</span></p>
+        <p class="kg">7,809.00 kgCO2e</p>
+        <span class="pill indicative" title="Indicative: calculated from sample factors, not certified."><i></i>Indicative</span>
+      </article>
+    </div>
+    <div class="card">
+      <div class="card-title"><h2>Lines</h2><span class="sub">Quantity multiplied by the pinned factor</span></div>
+      <div class="table-wrap">
+        <table class="data">
+          <thead><tr>
+            <th scope="col">Activity</th><th scope="col">Type</th><th scope="col" class="num">Quantity</th>
+            <th scope="col">Factor</th><th scope="col" class="num">kgCO2e</th><th scope="col">Scope</th>
+          </tr></thead>
+          <tbody>
+            <tr><td class="mono">ACT-0001</td><td>Diesel (road)</td><td class="num">1200 litre</td><td><span class="chip">EF-DIESEL-UK-2026.1</span></td><td class="num strong">3240.00</td><td><span class="badge s1">Scope 1</span></td></tr>
+            <tr><td class="mono">ACT-0002</td><td>Natural gas</td><td class="num">8000 kWh</td><td><span class="chip">EF-NATURALGAS-UK-2026.1</span></td><td class="num strong">1464.00</td><td><span class="badge s1">Scope 1</span></td></tr>
+            <tr><td class="mono">ACT-0003</td><td>Grid electricity (UK)</td><td class="num">15000 kWh</td><td><span class="chip">EF-GRIDELEC-UK-2026.1</span></td><td class="num strong">3105.00</td><td><span class="badge s2">Scope 2</span></td></tr>
+          </tbody>
+          <tfoot><tr><td colspan="4">Total</td><td class="num strong">7809.00</td><td></td></tr></tfoot>
+        </table>
+      </div>
+    </div>
+    <p class="fine">Figures are calculated from factors and quantities only. No figure is written by AI.</p>
+  </section>
+
+</main>
+<footer class="foot">Workshop sample values, not real emission factors. Carbon Hub Lite is a small workshop sample. This prototype shows the Footprint summary screen only.</footer>
+<script src="app.js"></script>
+</body>
+</html>

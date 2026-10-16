@@ -80,7 +80,7 @@ The service interface offers `listForSitePeriod(siteId, period)`. It returns eac
 
 ## 6. Web
 
-A "Record activity" screen with a form and a list of recorded activities. See `EXPERIENCE.md` in `_bmad-output/initiative-fac-factor-library/ux-fac-factor-library/`.
+A "Record activity" screen with a form and a list of recorded activities. See `EXPERIENCE.md` and `DESIGN.md` in `_bmad-output/initiative-act-activity-entry/ux-act-activity-entry/`.
 
 ## 7. Non-goals
 

@@ -36,7 +36,7 @@ One capability: the factor library, in module `factors` and on the Factors tab o
 - spec - `_bmad-output/initiative-fac-factor-library/prd-fac-factor-library/prd-fac-factor-library.md`, sections 3 and 10
 - constraint - `_bmad-output/prd-carbon-lite/prd-carbon-lite.md`, section 5, CLT.NFR-1 to CLT.NFR-5
 - constraint - `_bmad-output/architecture-carbon-lite/architecture-carbon-lite.md`, AD-1 to AD-10
-- design - `_bmad-output/initiative-fac-factor-library/ux-fac-factor-library/EXPERIENCE.md` and `DESIGN.md`
+- design - `_bmad-output/initiative-fac-factor-library/ux-fac-factor-library/EXPERIENCE.md` (Factor library screen) and `DESIGN.md` (the shared design)
 
 ## Notes
 

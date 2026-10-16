@@ -85,7 +85,7 @@ scripts/         setup, verify, check-install, baseline lock, maintainers/
 
 ## Inputs, not exercises
 
-The product documents are provided. They are product and business analysis work that is already done: the master PRD, the system spine (the architecture decisions AD-1 to AD-10), the three capability PRDs with their epics and tickets, and the UX documents with a clickable prototype. You read them. You do not create them. There is no architecture step. They live in `_bmad-output/` in each track folder.
+The product documents are provided. They are product and business analysis work that is already done: the master PRD, the system spine (the architecture decisions AD-1 to AD-10), the three capability PRDs with their epics and tickets, and one UX folder per initiative with a clickable prototype. You read them. You do not create them. There is no architecture step. They live in `_bmad-output/` in each track folder.
 
 ## The reference output is a guide
 

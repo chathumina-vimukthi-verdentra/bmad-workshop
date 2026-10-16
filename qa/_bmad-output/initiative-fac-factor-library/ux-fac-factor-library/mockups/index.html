@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Carbon Hub Lite</title>
+<title>Factor library: Carbon Hub Lite prototype</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
@@ -17,9 +17,7 @@
       <span class="brand-name">Carbon Hub Lite</span>
     </div>
     <nav class="tabs" role="tablist" aria-label="Main">
-      <a role="tab" href="#factors" id="tab-factors" data-tab="factors">Factors</a>
-      <a role="tab" href="#activities" id="tab-activities" data-tab="activities">Activities</a>
-      <a role="tab" href="#footprint" id="tab-footprint" data-tab="footprint">Footprint</a>
+      <a role="tab" href="#" id="tab-factors" aria-selected="true">Factors</a>
     </nav>
     <div class="org"><span class="org-name">Nair Logistics</span><span class="avatar" aria-label="Priya Nair">PN</span></div>
   </div>
@@ -27,8 +25,9 @@
 
 <main class="page">
 
+
   <!-- Screen 1: Factor library (FAC) -->
-  <section id="screen-factors" class="screen" role="tabpanel" aria-labelledby="tab-factors" hidden>
+  <section id="screen-factors" class="screen">
     <div class="page-head">
       <h1 tabindex="-1">Factor library</h1>
       <p class="lede">Emission factors are versioned. Each activity uses the factor that was current when it was recorded.</p>
@@ -62,119 +61,8 @@
     </div>
   </section>
 
-  <!-- Screen 2: Record activity (ACT) -->
-  <section id="screen-activities" class="screen" role="tabpanel" aria-labelledby="tab-activities" hidden>
-    <div class="page-head">
-      <h1 tabindex="-1">Record activity</h1>
-      <p class="lede">Record fuel or electricity use for one site and one reporting period.</p>
-    </div>
-    <div class="two-col">
-      <div class="card pad">
-        <h2>New activity</h2>
-        <div class="notice notice-error" id="form-error" role="alert" hidden><span class="ni" aria-hidden="true">!</span><span id="form-error-text"></span></div>
-        <div class="notice notice-success" id="form-success" role="status" hidden><span class="ni" aria-hidden="true">&#10003;</span><span id="form-success-text"></span></div>
-        <form id="activity-form" novalidate>
-          <div class="row2">
-          <div class="field" id="f-site">
-            <label for="site">Site</label>
-            <input id="site" name="site" type="text" value="Depot 1" autocomplete="off" aria-describedby="site-help">
-            <p class="help" id="site-help">For example, Depot 1.</p>
-            <p class="err" id="site-err" hidden></p>
-          </div>
-          <div class="field" id="f-period">
-            <label for="period">Period</label>
-            <input id="period" name="period" type="text" value="2026-03" autocomplete="off" aria-describedby="period-help">
-            <p class="help" id="period-help">Use 2026 or 2026-03.</p>
-            <p class="err" id="period-err" hidden></p>
-          </div>
-          </div>
-          <div class="field" id="f-type">
-            <label for="type">Activity type</label>
-            <select id="type" name="type" aria-describedby="type-help">
-              <option value="">Choose an activity type</option>
-            </select>
-            <p class="help" id="type-help">The factor is pinned when you record the activity.</p>
-            <p class="err" id="type-err" hidden></p>
-          </div>
-          <div class="row2">
-            <div class="field" id="f-qty">
-              <label for="qty">Quantity</label>
-              <input id="qty" name="qty" type="text" inputmode="decimal" autocomplete="off" aria-describedby="qty-help">
-              <p class="help" id="qty-help">A number greater than 0.</p>
-              <p class="err" id="qty-err" hidden></p>
-            </div>
-            <div class="field">
-              <label for="unit">Unit</label>
-              <input id="unit" name="unit" type="text" readonly value="" placeholder="Set from type" aria-describedby="unit-help">
-              <p class="help" id="unit-help">Set from the activity type.</p>
-            </div>
-          </div>
-          <button class="btn primary" type="submit" id="submit-btn">Record activity</button>
-        </form>
-      </div>
-      <div class="card pad">
-        <h2>Recent activities</h2>
-        <p class="sub" id="recent-context">Depot 1, 2026-03</p>
-        <div class="table-wrap">
-          <table class="data compact">
-            <thead><tr><th scope="col">Id</th><th scope="col">Type</th><th scope="col" class="num">Quantity</th></tr></thead>
-            <tbody id="recent-rows"></tbody>
-          </table>
-        </div>
-        <p class="empty-text" id="recent-empty" hidden>No activities recorded for this site and period yet.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Screen 3: Footprint summary (FPS) -->
-  <section id="screen-footprint" class="screen" role="tabpanel" aria-labelledby="tab-footprint" hidden>
-    <div class="page-head">
-      <h1 tabindex="-1">Footprint summary</h1>
-      <p class="lede">Depot 1, 2026-03</p>
-    </div>
-    <div class="notice notice-info" role="note"><span class="ni" aria-hidden="true">i</span><span>Every figure is Indicative in this workshop. Verified figures need certification, which is out of scope.</span></div>
-    <div class="cards3">
-      <article class="card summary s1">
-        <h2>Scope 1</h2>
-        <p class="big">4.704 <span class="unit">tCO2e</span></p>
-        <p class="kg">4,704.00 kgCO2e</p>
-        <span class="pill indicative" title="Indicative: calculated from sample factors, not certified."><i></i>Indicative</span>
-      </article>
-      <article class="card summary s2">
-        <h2>Scope 2</h2>
-        <p class="big">3.105 <span class="unit">tCO2e</span></p>
-        <p class="kg">3,105.00 kgCO2e</p>
-        <span class="pill indicative" title="Indicative: calculated from sample factors, not certified."><i></i>Indicative</span>
-      </article>
-      <article class="card summary st">
-        <h2>Total</h2>
-        <p class="big">7.809 <span class="unit">tCO2e</span></p>
-        <p class="kg">7,809.00 kgCO2e</p>
-        <span class="pill indicative" title="Indicative: calculated from sample factors, not certified."><i></i>Indicative</span>
-      </article>
-    </div>
-    <div class="card">
-      <div class="card-title"><h2>Lines</h2><span class="sub">Quantity multiplied by the pinned factor</span></div>
-      <div class="table-wrap">
-        <table class="data">
-          <thead><tr>
-            <th scope="col">Activity</th><th scope="col">Type</th><th scope="col" class="num">Quantity</th>
-            <th scope="col">Factor</th><th scope="col" class="num">kgCO2e</th><th scope="col">Scope</th>
-          </tr></thead>
-          <tbody>
-            <tr><td class="mono">ACT-0001</td><td>Diesel (road)</td><td class="num">1200 litre</td><td><span class="chip">EF-DIESEL-UK-2026.1</span></td><td class="num strong">3240.00</td><td><span class="badge s1">Scope 1</span></td></tr>
-            <tr><td class="mono">ACT-0002</td><td>Natural gas</td><td class="num">8000 kWh</td><td><span class="chip">EF-NATURALGAS-UK-2026.1</span></td><td class="num strong">1464.00</td><td><span class="badge s1">Scope 1</span></td></tr>
-            <tr><td class="mono">ACT-0003</td><td>Grid electricity (UK)</td><td class="num">15000 kWh</td><td><span class="chip">EF-GRIDELEC-UK-2026.1</span></td><td class="num strong">3105.00</td><td><span class="badge s2">Scope 2</span></td></tr>
-          </tbody>
-          <tfoot><tr><td colspan="4">Total</td><td class="num strong">7809.00</td><td></td></tr></tfoot>
-        </table>
-      </div>
-    </div>
-    <p class="fine">Figures are calculated from factors and quantities only. No figure is written by AI.</p>
-  </section>
-
 </main>
-<footer class="foot">Workshop sample values, not real emission factors. Carbon Hub Lite is a small workshop sample.</footer>
+<footer class="foot">Workshop sample values, not real emission factors. Carbon Hub Lite is a small workshop sample. This prototype shows the Factor library screen only.</footer>
 <script src="app.js"></script>
 </body>
 </html>

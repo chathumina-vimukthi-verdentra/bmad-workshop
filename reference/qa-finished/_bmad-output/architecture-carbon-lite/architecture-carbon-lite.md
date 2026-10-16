@@ -125,7 +125,7 @@ Only the two module arrows are allowed. Footprint reaches factors through activi
 | Errors | problem+json. Status codes: 400 bad query, 404 unknown id, 422 invalid body |
 | Lists | `{count, items}`. Factor lists are ordered by label ascending |
 | Seeding | Seed data is in memory, uses fixed ids and is idempotent. Seeding twice never duplicates |
-| Web | Plain CSS with design tokens from the UX design (`DESIGN.md`). The web app formats numbers for display only and never calculates |
+| Web | Plain CSS with design tokens from the shared UX design (`initiative-fac-factor-library/ux-fac-factor-library/DESIGN.md`). The web app formats numbers for display only and never calculates |
 | Notices | Any screen that shows factor numbers shows: "Workshop sample values, not real emission factors." |
 
 ## Stack

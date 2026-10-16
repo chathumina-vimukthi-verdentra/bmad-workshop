@@ -47,7 +47,9 @@ The `footprint` module and the Footprint tab. Reads activities only through the 
 - parent - `_bmad-output/initiative-fps-footprint-summary/initiative-fps-footprint-summary.md`, covers FPS.FR-1 to FPS.FR-3
 - spec - `_bmad-output/initiative-fps-footprint-summary/prd-fps-footprint-summary/prd-fps-footprint-summary.md`, sections 3, 4, 5 and 10
 - constraint - `_bmad-output/architecture-carbon-lite/architecture-carbon-lite.md`, AD-1 to AD-6
-- design - `_bmad-output/initiative-fac-factor-library/ux-fac-factor-library/EXPERIENCE.md`, screen Footprint summary
+- design - `_bmad-output/initiative-fps-footprint-summary/ux-fps-footprint-summary/EXPERIENCE.md`, screen Footprint summary
+- design - `_bmad-output/initiative-fps-footprint-summary/ux-fps-footprint-summary/DESIGN.md`, what this screen adds to the shared design
+- design - `_bmad-output/initiative-fps-footprint-summary/ux-fps-footprint-summary/mockups/index.html`, the clickable prototype
 
 ## Notes
 

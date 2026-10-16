@@ -109,7 +109,7 @@ components:
 
 # Design: Carbon Hub Lite
 
-This file says how Carbon Hub Lite looks. The companion file `EXPERIENCE.md` says how it behaves. The clickable prototype is `mockups/index.html`. Exports of the three screens are in `mockups/screens/`. The spines win on conflict with any mock.
+This file says how Carbon Hub Lite looks. It is the shared design for all three screens, and it lives with the factor library because FAC is built first. The companion file `EXPERIENCE.md` says how the Factor library screen behaves. The clickable prototype is `mockups/index.html` and its export is `mockups/screens/01-factor-library.png`. The Record activity and Footprint summary screens inherit this file: see `../../initiative-act-activity-entry/ux-act-activity-entry/DESIGN.md` and `../../initiative-fps-footprint-summary/ux-fps-footprint-summary/DESIGN.md`. The spines win on conflict with any mock.
 
 Workshop sample values, not real emission factors. Every figure in the prototype is fictional.
 

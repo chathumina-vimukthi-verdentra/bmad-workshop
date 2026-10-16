@@ -86,7 +86,7 @@ Nothing is stored. The summary is rebuilt on every request (AD-2).
 
 ## 6. Web
 
-A "Footprint summary" screen with a totals card, a status chip and a lines table. See `EXPERIENCE.md` in `_bmad-output/initiative-fac-factor-library/ux-fac-factor-library/`.
+A "Footprint summary" screen with a totals card, a status chip and a lines table. See `EXPERIENCE.md` and `DESIGN.md` in `_bmad-output/initiative-fps-footprint-summary/ux-fps-footprint-summary/`.
 
 ## 7. Non-goals
 

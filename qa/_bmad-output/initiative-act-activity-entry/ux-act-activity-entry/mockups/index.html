@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Record activity: Carbon Hub Lite prototype</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="app-header">
+  <div class="header-inner">
+    <div class="brand">
+      <svg class="leaf" width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path fill="#70AC46" d="M20 3C9 3 4 9 4 15c0 1.6.4 3 1.2 4.2C6 15 9 11.500 14 9.500 10.500 12 8 15.500 7.200 20.300c.9.500 2 .7 3.100.7C17 21 21 15 20 3z"/></svg>
+      <span class="brand-name">Carbon Hub Lite</span>
+    </div>
+    <nav class="tabs" role="tablist" aria-label="Main">
+      <a role="tab" href="#" id="tab-activities" aria-selected="true">Activities</a>
+    </nav>
+    <div class="org"><span class="org-name">Nair Logistics</span><span class="avatar" aria-label="Priya Nair">PN</span></div>
+  </div>
+</header>
+
+<main class="page">
+
+
+  <!-- Screen 2: Record activity (ACT) -->
+  <section id="screen-activities" class="screen">
+    <div class="page-head">
+      <h1 tabindex="-1">Record activity</h1>
+      <p class="lede">Record fuel or electricity use for one site and one reporting period.</p>
+    </div>
+    <div class="two-col">
+      <div class="card pad">
+        <h2>New activity</h2>
+        <div class="notice notice-error" id="form-error" role="alert" hidden><span class="ni" aria-hidden="true">!</span><span id="form-error-text"></span></div>
+        <div class="notice notice-success" id="form-success" role="status" hidden><span class="ni" aria-hidden="true">&#10003;</span><span id="form-success-text"></span></div>
+        <form id="activity-form" novalidate>
+          <div class="row2">
+          <div class="field" id="f-site">
+            <label for="site">Site</label>
+            <input id="site" name="site" type="text" value="Depot 1" autocomplete="off" aria-describedby="site-help">
+            <p class="help" id="site-help">For example, Depot 1.</p>
+            <p class="err" id="site-err" hidden></p>
+          </div>
+          <div class="field" id="f-period">
+            <label for="period">Period</label>
+            <input id="period" name="period" type="text" value="2026-03" autocomplete="off" aria-describedby="period-help">
+            <p class="help" id="period-help">Use 2026 or 2026-03.</p>
+            <p class="err" id="period-err" hidden></p>
+          </div>
+          </div>
+          <div class="field" id="f-type">
+            <label for="type">Activity type</label>
+            <select id="type" name="type" aria-describedby="type-help">
+              <option value="">Choose an activity type</option>
+            </select>
+            <p class="help" id="type-help">The factor is pinned when you record the activity.</p>
+            <p class="err" id="type-err" hidden></p>
+          </div>
+          <div class="row2">
+            <div class="field" id="f-qty">
+              <label for="qty">Quantity</label>
+              <input id="qty" name="qty" type="text" inputmode="decimal" autocomplete="off" aria-describedby="qty-help">
+              <p class="help" id="qty-help">A number greater than 0.</p>
+              <p class="err" id="qty-err" hidden></p>
+            </div>
+            <div class="field">
+              <label for="unit">Unit</label>
+              <input id="unit" name="unit" type="text" readonly value="" placeholder="Set from type" aria-describedby="unit-help">
+              <p class="help" id="unit-help">Set from the activity type.</p>
+            </div>
+          </div>
+          <button class="btn primary" type="submit" id="submit-btn">Record activity</button>
+        </form>
+      </div>
+      <div class="card pad">
+        <h2>Recent activities</h2>
+        <p class="sub" id="recent-context">Depot 1, 2026-03</p>
+        <div class="table-wrap">
+          <table class="data compact">
+            <thead><tr><th scope="col">Id</th><th scope="col">Type</th><th scope="col" class="num">Quantity</th></tr></thead>
+            <tbody id="recent-rows"></tbody>
+          </table>
+        </div>
+        <p class="empty-text" id="recent-empty" hidden>No activities recorded for this site and period yet.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+<footer class="foot">Workshop sample values, not real emission factors. Carbon Hub Lite is a small workshop sample. This prototype shows the Record activity screen only.</footer>
+<script src="app.js"></script>
+</body>
+</html>

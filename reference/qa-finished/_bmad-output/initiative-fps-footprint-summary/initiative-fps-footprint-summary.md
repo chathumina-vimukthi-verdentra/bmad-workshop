@@ -39,7 +39,7 @@ One capability: the footprint calculation and its summary, in module `footprint`
 - spec - `_bmad-output/initiative-fps-footprint-summary/prd-fps-footprint-summary/prd-fps-footprint-summary.md`, sections 3 and 10
 - constraint - `_bmad-output/prd-carbon-lite/prd-carbon-lite.md`, section 5, CLT.NFR-1 to CLT.NFR-5
 - constraint - `_bmad-output/architecture-carbon-lite/architecture-carbon-lite.md`, AD-1 to AD-6
-- design - `_bmad-output/initiative-fac-factor-library/ux-fac-factor-library/EXPERIENCE.md`, screen Footprint summary
+- design - `_bmad-output/initiative-fps-footprint-summary/ux-fps-footprint-summary/EXPERIENCE.md` and `DESIGN.md`, screen Footprint summary (inherits the shared design in `ux-fac-factor-library/DESIGN.md`)
 
 ## Notes
 

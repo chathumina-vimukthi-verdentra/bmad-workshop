@@ -12,7 +12,7 @@ All emission factor numbers in this project are workshop sample values, not real
 | System spine (shared architecture decisions) | `_bmad-output/architecture-carbon-lite/` |
 | Capability initiatives, each holding its PRD | `initiative-fac-factor-library/` (built first), `initiative-act-activity-entry/`, `initiative-fps-footprint-summary/` |
 | Epics and stories, listed in `tickets.toml` | inside each initiative; ticket `1.1` is epic 1, entry 1 |
-| UX design | `initiative-fac-factor-library/ux-fac-factor-library/` |
+| UX design, one folder per initiative | `initiative-fac-factor-library/ux-fac-factor-library/` (also holds the shared `DESIGN.md`), `initiative-act-activity-entry/ux-act-activity-entry/`, `initiative-fps-footprint-summary/ux-fps-footprint-summary/` |
 | `modules.yaml`, Copilot instructions | same names here |
 | BMad skills | `.agents/skills/` (already installed) |
 
