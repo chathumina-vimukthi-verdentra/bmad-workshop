@@ -14,16 +14,16 @@ This folder is a read-only guide. It is the state after `/bmad-tea-framework`, `
 | Automation summary for story 1.1 | `_bmad-output/test-artifacts/automate/automation-summary-story-1-1.md` |
 | Plain summary of the TEA run with measured numbers | `_bmad-output/test-artifacts/tea-run-summary.md` |
 
-## The measured numbers
+## Reference numbers (the reference folder only, a live run will differ)
 
-These are the reference numbers. A live Copilot run can differ slightly; compare the shape.
+These figures were verified from the reference folder. Your live run will differ, so compare the shape and not the numbers.
+
 
 | What | Result |
 |---|---|
 | `npm test` (Vitest) | 13 passed |
 | `npx playwright test` | 32 passed (22 API, 10 browser) |
+| Test design | 4 risks (R-001 high, score 6), 32 scenarios (P0 9, P1 19, P2 3, P3 1), 26 to 45 hours by hand, gates P0 100%, P1 95%, P2 and P3 90% |
 | `npm run build` | passes |
 
 The first Playwright run, on the app as built, had 31 passed and 1 failed. The failure was a real accessibility defect: the Scope 2 badge had a contrast ratio of 3.32 to 1. The badge colours in `apps/web/src/styles.css` were then changed to the colours in the UX design, and the run passed. The Left for later list in the automation summary says what is still open.
-
-It is a guide. A live run will differ in wording and detail.

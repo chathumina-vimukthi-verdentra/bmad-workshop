@@ -67,7 +67,7 @@ To change something first, choose "Review plan" and say what to change, for exam
 
 ### 4. Build: let it implement and review
 
-It writes the code, runs the tests and reviews its own work. Findings go into the plan's Review Triage Log. Answer any question it asks. When it finishes, the plan status is `built`, `npm test` passes and it makes a local commit. It never pushes. The reference build has 7 tests.
+It writes the code, runs the tests and reviews its own work. Findings go into the plan's Review Triage Log. Answer any question it asks. When it finishes, the plan status is `built`, `npm test` passes and it makes a local commit. It never pushes.
 
 ### 5. Build: check the result
 
@@ -119,7 +119,7 @@ Review the commit that built ticket 1.1. The plan is _bmad-output/initiative-fac
 
 ### 7. Walkthrough: go through the blocks
 
-It announces "Block 1 of N". The reference narrative has 7 blocks. Block 1 is the Intent. Then it offers moves: Thoughts, Drive (start the app and check the Factors tab), or you say "done" to go to the next block. When a block is fine, say so:
+It announces "Block 1 of N". Block 1 is the Intent. Then it offers moves: Thoughts, Drive (start the app and check the Factors tab), or you say "done" to go to the next block. When a block is fine, say so:
 
 ```text
 Done, next block
@@ -195,13 +195,9 @@ git add -A && git commit -m "fix: validate factor filters, review findings for 1
 
 ## What to check
 
-Reference numbers:
-
-- Build: 1 local commit, `npm test` passes with 7 tests (1 health and 6 for the ticket), 6 seeded factors, 7 acceptance criteria (a) to (g), 11 files changed (code, tests and the plan). `npm run build` passes. The status command shows ticket 1.1 in state `review` and 1.2 as `planned`. The Factors tab shows six rows ordered by label, each with a scope badge and a version chip, and the "Workshop sample values" notice.
-- Walkthrough: 7 blocks in the narrative, 5 broad-strokes entry points, 5 log entries and 1 open finding: the invalid filter returns 200, not 400. Nothing in `apps/` changed.
-- Code review: 8 findings, which are 2 patch, 3 defer, 3 rejected and 0 decision-needed. `deferred-work.md` has 3 deferred items. `npm test` passes with 13 tests (the 7 from the build plus 6 new). `GET /api/v1/factors?scope=9` returns 400 with `application/problem+json`. The grep prints one line per patch or defer finding, tagged `[Review][Patch]` or `[Review][Defer]`.
-
-These are the reference numbers. A live Copilot run can differ slightly; compare the shape.
+- Build: the plan status is `built` and there is one local commit. `npm test` passes and `npm run build` passes. The plan lists the seven acceptance criteria (a) to (g). The status command shows ticket 1.1 in state `review` and 1.2 as `planned`. The Factors tab shows the six seeded factors ordered by label, each with a scope badge and a version chip, and the "Workshop sample values" notice.
+- Walkthrough: the narrative has an Intent block, a Broad strokes block, slices and a Periphery block, with links. The log records your question about the invalid scope value as an open finding. Nothing in `apps/` changed.
+- Code review: four lenses ran. Every finding is patched, deferred or rejected, and the plan's Code Review section lists them. `npm test` passes after the patches. `GET /api/v1/factors?scope=9` returns 400 with `application/problem+json`. `deferred-work.md` exists only if the review deferred something.
 
 ## What you will see
 
@@ -218,5 +214,13 @@ The reference output is `reference/dev-finished`. The reference build has one de
 ## If you are stuck
 
 Compare with `reference/dev-finished` and copy the files you need into this folder. Do not open the reference folder as your workspace. The QA track works on its own copy of the built ticket, so you never block QA.
+
+## Reference numbers (the reference folder only, a live run will differ)
+
+These figures were verified from the reference folder. Your live run will differ, so compare the shape and not the numbers.
+
+- Build: 7 tests (1 health and 6 for the ticket), 6 seeded factors, 7 acceptance criteria (a) to (g), 11 files changed (code, tests and the plan), 1 local commit.
+- Walkthrough: 7 blocks in the narrative, 5 broad-strokes entry points, 5 log entries, 1 open finding (the invalid filter returns 200, not 400).
+- Code review: 8 findings, which are 2 patch, 3 defer, 3 rejected and 0 decision-needed. 3 deferred items. 13 tests after the patches (the 7 from the build plus 6 new).
 
 Back to the [repository README](../README.md).

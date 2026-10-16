@@ -4,7 +4,7 @@ Workshop sample values, not real emission factors.
 
 ## What we are trying to do
 
-We use the Test Architect module on story 1.1 with three commands. In this folder ticket 1.1 is already built and reviewed (13 Vitest tests, the review applied), so you do not wait for the Developer track. `/bmad-tea-framework` sets up Playwright on the web app's own stack, keeps the existing Vitest suite and scaffolds the test files and fixtures. `/bmad-tea-test-design` writes the epic 1 test plan: every risk traces to a written gap, is scored, and gets coverage by priority and quality gates. `/bmad-tea-automate` writes the planned tests, runs them, repairs only defects in the tests, and says plainly what it left for later. The result is a working test framework, a test plan and a passing suite.
+We use the Test Architect module on story 1.1 with three commands. In this folder ticket 1.1 is already built and reviewed (the review applied), so you do not wait for the Developer track. `/bmad-tea-framework` sets up Playwright on the web app's own stack, keeps the existing Vitest suite and scaffolds the test files and fixtures. `/bmad-tea-test-design` writes the epic 1 test plan: every risk traces to a written gap, is scored, and gets coverage by priority and quality gates. `/bmad-tea-automate` writes the planned tests, runs them, repairs only defects in the tests, and says plainly what it left for later. The result is a working test framework, a test plan and a passing suite.
 
 ## Who decides
 
@@ -132,14 +132,9 @@ npx playwright show-report
 
 ## What to check
 
-Reference numbers:
-
-- Framework: `npm test` still passes with 13 Vitest tests. TEA adds a Playwright config, e2e specs, fixtures and helpers and a `test:e2e` script. Pact is skipped.
-- Test design: 4 risks (R-001 is high, score 6), 32 scenarios (P0 9, P1 19, P2 3, P3 1), 26 to 45 hours if written by hand, and quality gates of 100% for P0, 95% for P1 and 90% for P2 and P3. Every scored risk points at one coverage row.
-- Automate: 32 Playwright tests, which are 22 API and 10 browser. The first run had 31 passed and 1 failed: the axe scan found the Scope 2 badge contrast at 3.32:1. After the fix, 32 passed, and 96 of 96 passed with `--repeat-each=3`. 13 Vitest tests still pass.
-- Nothing was hidden: a failing test is in the summary, not skipped.
-
-These are the reference numbers. A live Copilot run can differ slightly; compare the shape.
+- Framework: `npm test` still passes. TEA adds a Playwright config, e2e specs, fixtures and helpers, and a `test:e2e` script. Contract testing is skipped.
+- Test design: the plan lists each risk with a quoted source, a score and a coverage row. The quality gates say P0 must pass 100%, P1 95%, and P2 and P3 90%.
+- Automate: the Playwright tests pass, and the summary says what was created, what failed and what was left. If the axe scan was added and finds the Scope 2 badge contrast, that is reported, not hidden.
 
 ## What you will see
 
@@ -155,12 +150,20 @@ The reference output is `reference/qa-finished`. It also has `_bmad-output/test-
 
 ### What can differ in your run
 
-- Counts: the dry run had 17 Vitest and 8 Playwright tests without an axe check. Your counts will differ from the reference.
+- Counts of tests, risks and scenarios will differ from the reference, and more so if no axe scan is added.
 - Which questions appear: the preflight may or may not stop on the missing backend manifest, and the dependency and accessibility questions may be worded differently or not asked.
 - Whether the preflight halts: if it does, choose the recommended option and carry on.
 
 ## If you are stuck
 
 Compare with `reference/qa-finished` and copy the files you need into this folder. Do not open the reference folder as your workspace.
+
+## Reference numbers (the reference folder only, a live run will differ)
+
+These figures were verified from the reference folder. Your live run will differ, so compare the shape and not the numbers.
+
+- Framework: 13 Vitest tests still pass.
+- Test design: 4 risks (R-001 is high, score 6), 32 scenarios (P0 9, P1 19, P2 3, P3 1), 26 to 45 hours if written by hand, quality gates P0 100%, P1 95%, P2 and P3 90%.
+- Automate: 32 Playwright tests (22 API and 10 browser). The first run had 31 passed and 1 failed (axe, Scope 2 badge contrast 3.32:1). After the fix, 32 passed, and 96 of 96 passed with `--repeat-each=3`.
 
 Back to the [repository README](../README.md).
