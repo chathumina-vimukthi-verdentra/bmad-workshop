@@ -16,7 +16,7 @@ This folder is a read-only guide. It is the state after `/bmad-tea-framework`, `
 
 ## The measured numbers
 
-These are reference numbers. Yours will differ.
+These are the reference numbers. A live Copilot run can differ slightly; compare the shape.
 
 | What | Result |
 |---|---|

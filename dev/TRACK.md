@@ -67,7 +67,7 @@ To change something first, choose "Review plan" and say what to change, for exam
 
 ### 4. Build: let it implement and review
 
-It writes the code, runs the tests and reviews its own work. Findings go into the plan's Review Triage Log. Answer any question it asks. When it finishes, the plan status is `built`, `npm test` passes and it makes a local commit. It never pushes. The test count is only a guide: the reference build has 7 tests, and a live run may differ by one or two.
+It writes the code, runs the tests and reviews its own work. Findings go into the plan's Review Triage Log. Answer any question it asks. When it finishes, the plan status is `built`, `npm test` passes and it makes a local commit. It never pushes. The reference build has 7 tests.
 
 ### 5. Build: check the result
 
@@ -119,7 +119,7 @@ Review the commit that built ticket 1.1. The plan is _bmad-output/initiative-fac
 
 ### 7. Walkthrough: go through the blocks
 
-It announces "Block 1 of N". N is 5 to 7 blocks (5 in the dry run, 7 in the reference). Block 1 is the Intent. Then it offers moves: Thoughts, Drive (start the app and check the Factors tab), or you say "done" to go to the next block. When a block is fine, say so:
+It announces "Block 1 of N". The reference narrative has 7 blocks. Block 1 is the Intent. Then it offers moves: Thoughts, Drive (start the app and check the Factors tab), or you say "done" to go to the next block. When a block is fine, say so:
 
 ```text
 Done, next block
@@ -195,9 +195,13 @@ git add -A && git commit -m "fix: validate factor filters, review findings for 1
 
 ## What to check
 
-- All counts here are guides. After the build: a new commit with a conventional message, `npm test` passes (the reference build has 7 tests: 1 health and 6 for the ticket), `npm run build` passes, the status command shows ticket 1.1 in state `review` and 1.2 as `planned`, and the Factors tab shows six rows ordered by label, each with a scope badge and a version chip, and the "Workshop sample values" notice.
-- After the walkthrough: the narrative has the blocks Intent, Broad strokes, a few Slices and Periphery with clickable links, and the log records your question about the invalid scope value as an open finding. Nothing in `apps/` changed.
-- After the review: `npm test` passes (13 tests in the reference: the 7 from the build plus 6 for invalid filters), the grep prints one line per finding tagged `[Review][Patch]` or `[Review][Defer]`, `deferred-work.md` has one bullet per deferred item, and `GET /api/v1/factors?scope=9` returns 400 with `application/problem+json`.
+Reference numbers:
+
+- Build: 1 local commit, `npm test` passes with 7 tests (1 health and 6 for the ticket), 6 seeded factors, 7 acceptance criteria (a) to (g), 11 files changed (code, tests and the plan). `npm run build` passes. The status command shows ticket 1.1 in state `review` and 1.2 as `planned`. The Factors tab shows six rows ordered by label, each with a scope badge and a version chip, and the "Workshop sample values" notice.
+- Walkthrough: 7 blocks in the narrative, 5 broad-strokes entry points, 5 log entries and 1 open finding: the invalid filter returns 200, not 400. Nothing in `apps/` changed.
+- Code review: 8 findings, which are 2 patch, 3 defer, 3 rejected and 0 decision-needed. `deferred-work.md` has 3 deferred items. `npm test` passes with 13 tests (the 7 from the build plus 6 new). `GET /api/v1/factors?scope=9` returns 400 with `application/problem+json`. The grep prints one line per patch or defer finding, tagged `[Review][Patch]` or `[Review][Defer]`.
+
+These are the reference numbers. A live Copilot run can differ slightly; compare the shape.
 
 ## What you will see
 
@@ -209,7 +213,7 @@ Files created or changed:
 - `_bmad-output/initiative-fac-factor-library/walkthrough-list-seeded-factors/` with the narrative and the log.
 - `_bmad-output/initiative-fac-factor-library/deferred-work.md`.
 
-The reference output is `reference/dev-finished`. It is a guide: your live run will differ in wording, file details and commit ids. The reference build has one deliberate gap that the walkthrough and the review find. The reference review lists 2 patches, 3 deferred items and 3 rejected findings. The counts are a guide only. Your review will find different things and word them differently.
+The reference output is `reference/dev-finished`. The reference build has one deliberate gap, the invalid filter value, that the walkthrough and the review find. Your commit ids and wording will differ.
 
 ## If you are stuck
 

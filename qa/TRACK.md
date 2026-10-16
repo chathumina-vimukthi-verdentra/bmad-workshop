@@ -132,11 +132,14 @@ npx playwright show-report
 
 ## What to check
 
-- `npm test` still passes with 13 tests. TEA keeps the existing suite.
-- `npm run test:e2e` runs the API tests and the browser tests. Reference numbers: 13 Vitest and 32 Playwright tests. Yours will differ.
-- The test design lists each risk with probability, impact and score, and points each scored risk at one coverage row.
-- The automation summary says what was created, how many tests passed, which defects were found and what was left for later.
+Reference numbers:
+
+- Framework: `npm test` still passes with 13 Vitest tests. TEA adds a Playwright config, e2e specs, fixtures and helpers and a `test:e2e` script. Pact is skipped.
+- Test design: 4 risks (R-001 is high, score 6), 32 scenarios (P0 9, P1 19, P2 3, P3 1), 26 to 45 hours if written by hand, and quality gates of 100% for P0, 95% for P1 and 90% for P2 and P3. Every scored risk points at one coverage row.
+- Automate: 32 Playwright tests, which are 22 API and 10 browser. The first run had 31 passed and 1 failed: the axe scan found the Scope 2 badge contrast at 3.32:1. After the fix, 32 passed, and 96 of 96 passed with `--repeat-each=3`. 13 Vitest tests still pass.
 - Nothing was hidden: a failing test is in the summary, not skipped.
+
+These are the reference numbers. A live Copilot run can differ slightly; compare the shape.
 
 ## What you will see
 
@@ -148,11 +151,11 @@ Files created or changed (paths follow `_bmad/config.toml`):
 - `_bmad-output/test-artifacts/test-design/test-design-epic-1.md`
 - `_bmad-output/test-artifacts/automate/automation-summary-story-1-1.md`
 
-The reference output is `reference/qa-finished`. It also has `_bmad-output/test-artifacts/tea-run-summary.md`, a plain page with the measured numbers. It is a guide: a live run will differ in wording, in the tests it chooses and sometimes in the numbers. The rule that blocks `.only` and hard waits (`tools/check-test-rules.mjs`, `.githooks/pre-commit`) exists only in the reference folder. It was added by hand. TEA does not create it on this host.
+The reference output is `reference/qa-finished`. It also has `_bmad-output/test-artifacts/tea-run-summary.md`, a plain page with the measured numbers. The rule that blocks `.only` and hard waits (`tools/check-test-rules.mjs`, `.githooks/pre-commit`) exists only in the reference folder. It was added by hand. TEA does not create it on this host.
 
 ### What can differ in your run
 
-- Counts: the reference has 13 Vitest and 32 Playwright tests. The dry run had 17 and 8 without an axe check. Yours will differ.
+- Counts: the dry run had 17 Vitest and 8 Playwright tests without an axe check. Your counts will differ from the reference.
 - Which questions appear: the preflight may or may not stop on the missing backend manifest, and the dependency and accessibility questions may be worded differently or not asked.
 - Whether the preflight halts: if it does, choose the recommended option and carry on.
 
