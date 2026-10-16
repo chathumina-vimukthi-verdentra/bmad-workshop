@@ -7,7 +7,7 @@ This folder is a read-only guide. It is the state after `/bmad-tea-framework`, `
 | Part | Where |
 |---|---|
 | Test framework: Playwright config, support files, README | `playwright.config.ts`, `tests/support/`, `tests/README.md` |
-| Rule that blocks `.only` and hard waits | `tools/check-test-rules.mjs`, `.githooks/pre-commit`, `npm run lint:tests` |
+| Rule that blocks `.only` and hard waits (added by hand, TEA does not create it on this host) | `tools/check-test-rules.mjs`, `.githooks/pre-commit`, `npm run lint:tests` |
 | Test design for epic 1 | `_bmad-output/test-artifacts/test-design/test-design-epic-1.md` |
 | API tests and browser tests | `tests/api/factors.api.spec.ts`, `tests/e2e/factor-library.spec.ts` |
 | Accessibility scan (axe, WCAG 2.2 AA) | `tests/e2e/factor-library.a11y.spec.ts` |
@@ -16,7 +16,7 @@ This folder is a read-only guide. It is the state after `/bmad-tea-framework`, `
 
 ## The measured numbers
 
-These were measured in a real run. A live run will differ.
+These are reference numbers. Yours will differ.
 
 | What | Result |
 |---|---|

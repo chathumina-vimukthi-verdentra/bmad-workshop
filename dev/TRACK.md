@@ -38,34 +38,36 @@ Open this `dev` folder itself in VS Code (File > Open Folder), not the repositor
 /bmad-build 1.1
 ```
 
-### 2. Build: answer any route question
+### 2. Build: answer the open question
 
-The skill investigates first. It may ask a few numbered questions before it shows the plan. Answer from the epic and the capability PRD. For example:
+The skill investigates first. It may stop with an open question before it shows the plan. In the dry run it was "Open question 1: invalid scope value". The capability PRD (FAC.FR-2) says an invalid scope returns 400 problem+json, but the ticket's agreed criteria (a) to (g) do not include it. The options are "A. Leave it out" and "B. Include it". For this workshop answer:
 
 ```text
-1: Yes. Use the order and the nine fields from the capability PRD. No pagination.
+A
 ```
+
+Why: the agent stops and asks you to decide. Leaving it out keeps the build inside the ticket, and it gives the code review something real to find.
 
 ### 3. Build: read the plan, then approve it
 
-It shows a short summary, the plan's risk and the path of the plan file. Open the file and check that:
+Checkpoint 1 shows a summary with the plan file path, the risk and the route. Open the file and check that:
 
 - the Intent matches ticket 1.1,
 - the Boundaries say what is not included (no detail endpoint, no pagination),
 - the tasks cover the API, the tests and the web page,
 - the Acceptance Criteria are the seven criteria (a) to (g).
 
-At the checkpoint, type:
+The choices are "Approve and continue", "Approve and stop" and "Review plan". Type:
 
 ```text
 Approve and continue
 ```
 
-To change something first, say it instead, for example: `Review plan. Also show the factor id under the label in the table.`
+To change something first, choose "Review plan" and say what to change, for example: `Also show the factor id under the label in the table.`
 
 ### 4. Build: let it implement and review
 
-It writes the code, runs the tests and reviews its own work. Findings go into the plan's Review Triage Log. Answer any question it asks. When it finishes, the plan status is `built` and it makes a local commit. It never pushes.
+It writes the code, runs the tests and reviews its own work. Findings go into the plan's Review Triage Log. Answer any question it asks. When it finishes, the plan status is `built`, `npm test` passes and it makes a local commit. It never pushes. The test count is only a guide: the reference build has 7 tests, and a live run may differ by one or two.
 
 ### 5. Build: check the result
 
@@ -109,7 +111,7 @@ http://localhost:5173
 /bmad-walkthrough
 ```
 
-If it asks for the target, answer:
+If you give it no target, it picks the latest commit itself, which is the build commit. If it asks for a target, answer:
 
 ```text
 Review the commit that built ticket 1.1. The plan is _bmad-output/initiative-fac-factor-library/epic-browse-factors/story-list-seeded-factors-plan.md
@@ -117,7 +119,7 @@ Review the commit that built ticket 1.1. The plan is _bmad-output/initiative-fac
 
 ### 7. Walkthrough: go through the blocks
 
-It presents block 1, the intent, then offers one to three moves. Open the links it gives you and read. When a block is fine, say so:
+It announces "Block 1 of N". N is 5 to 7 blocks (5 in the dry run, 7 in the reference). Block 1 is the Intent. Then it offers moves: Thoughts, Drive (start the app and check the Factors tab), or you say "done" to go to the next block. When a block is fine, say so:
 
 ```text
 Done, next block
@@ -128,8 +130,6 @@ At the service and route block, ask the question a careful reviewer would ask:
 ```text
 What happens to a scope value that is not 1 or 2?
 ```
-
-If it offers the Drive or Test move, accept it. It starts the app and tells you which tab to open.
 
 ### 8. Walkthrough: wrap up
 
@@ -149,23 +149,19 @@ git add -A && git commit -m "docs: walkthrough notes for 1.1"
 /bmad-code-review
 ```
 
-The skill lists the tickets whose state is `review`. Pick ticket 1.1. If it asks for a target instead, answer:
+It stages the inputs and tells you the target: the build commit against the plan baseline, the diff stats and mode `full`. Then it asks you to confirm: "Confirm to start the parallel review, or name a different target". Reply:
 
 ```text
-Review ticket 1.1. The plan is _bmad-output/initiative-fac-factor-library/epic-browse-factors/story-list-seeded-factors-plan.md
+Confirm
 ```
 
-It shows the diff stats, the review mode and the plan it loaded. Confirm:
+(In the dry run a user typed "Target" and the skill asked again. Reply `Confirm`.)
 
-```text
-Continue
-```
+### 10. Code review: wait for the findings
 
-### 10. Code review: decide the findings
+Four lenses run in parallel: blind hunter, edge case hunter, verification gap and intent alignment. The result is a summary line like "0 decision-needed, N patch, N defer, N rejected". The findings are written to the plan's `## Code Review` section. If it lists `decision-needed` findings, reply with only the number of your choice.
 
-The reviewers run in parallel. Wait for the summary line and the list of findings. If it lists `decision-needed` findings, each one has numbered options and a recommendation. Reply with only the number of your choice.
-
-If the review did not find the invalid filter problem, say:
+In the reference the scope gap is a patch. If your live review does not find it, say:
 
 ```text
 Check what GET /api/v1/factors does for scope=9 and for an unknown activityType. The capability PRD says an invalid scope is rejected with a 400 problem+json (FAC.FR-2).
@@ -173,13 +169,11 @@ Check what GET /api/v1/factors does for scope=9 and for an unknown activityType.
 
 ### 11. Code review: apply the patches
 
-When it asks how to handle the patch findings, reply with only the number:
+It asks: "How would you like to handle the patch findings?" The options are 1. Apply every patch, 2. Leave as action items, 3. Walk through each patch. Reply with only the number:
 
 ```text
 1
 ```
-
-Option 1 is Apply every patch. Option 2 walks through each patch first.
 
 ### 12. Code review: check the result
 
@@ -201,7 +195,7 @@ git add -A && git commit -m "fix: validate factor filters, review findings for 1
 
 ## What to check
 
-- After the build: a new commit with a conventional message, `npm test` passes (the reference build has 7 tests: 1 health and 6 for the ticket), `npm run build` passes, the status command shows ticket 1.1 in state `review` and 1.2 as `planned`, and the Factors tab shows six rows ordered by label, each with a scope badge and a version chip, and the "Workshop sample values" notice.
+- All counts here are guides. After the build: a new commit with a conventional message, `npm test` passes (the reference build has 7 tests: 1 health and 6 for the ticket), `npm run build` passes, the status command shows ticket 1.1 in state `review` and 1.2 as `planned`, and the Factors tab shows six rows ordered by label, each with a scope badge and a version chip, and the "Workshop sample values" notice.
 - After the walkthrough: the narrative has the blocks Intent, Broad strokes, a few Slices and Periphery with clickable links, and the log records your question about the invalid scope value as an open finding. Nothing in `apps/` changed.
 - After the review: `npm test` passes (13 tests in the reference: the 7 from the build plus 6 for invalid filters), the grep prints one line per finding tagged `[Review][Patch]` or `[Review][Defer]`, `deferred-work.md` has one bullet per deferred item, and `GET /api/v1/factors?scope=9` returns 400 with `application/problem+json`.
 
@@ -215,7 +209,7 @@ Files created or changed:
 - `_bmad-output/initiative-fac-factor-library/walkthrough-list-seeded-factors/` with the narrative and the log.
 - `_bmad-output/initiative-fac-factor-library/deferred-work.md`.
 
-The reference output is `reference/dev-finished`. It is a guide: your live run will differ in wording, file details and commit ids. The reference build has one deliberate gap that the walkthrough and the review find. The reference review lists 2 patches, 3 deferred items and 3 rejected findings. Your review will find different things and word them differently.
+The reference output is `reference/dev-finished`. It is a guide: your live run will differ in wording, file details and commit ids. The reference build has one deliberate gap that the walkthrough and the review find. The reference review lists 2 patches, 3 deferred items and 3 rejected findings. The counts are a guide only. Your review will find different things and word them differently.
 
 ## If you are stuck
 

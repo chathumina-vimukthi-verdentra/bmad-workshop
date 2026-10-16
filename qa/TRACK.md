@@ -4,15 +4,15 @@ Workshop sample values, not real emission factors.
 
 ## What we are trying to do
 
-We use the Test Architect module on story 1.1 with three commands. In this folder ticket 1.1 is already built and reviewed (13 Vitest tests, the review applied), so you do not wait for the Developer track. `/bmad-tea-framework` sets up Playwright on the web app's own stack, keeps the existing Vitest suite and adds a rule that blocks `.only` and hard waits. `/bmad-tea-test-design` writes the epic 1 test plan: every risk traces to a written gap, is scored, and gets coverage by priority and quality gates. `/bmad-tea-automate` writes the planned tests, runs them, repairs only defects in the tests, and says plainly what it left for later. The result is a working test framework, a test plan and a passing suite.
+We use the Test Architect module on story 1.1 with three commands. In this folder ticket 1.1 is already built and reviewed (13 Vitest tests, the review applied), so you do not wait for the Developer track. `/bmad-tea-framework` sets up Playwright on the web app's own stack, keeps the existing Vitest suite and scaffolds the test files and fixtures. `/bmad-tea-test-design` writes the epic 1 test plan: every risk traces to a written gap, is scored, and gets coverage by priority and quality gates. `/bmad-tea-automate` writes the planned tests, runs them, repairs only defects in the tests, and says plainly what it left for later. The result is a working test framework, a test plan and a passing suite.
 
 ## Who decides
 
 You do. The human decision points are:
 
-- Framework: which operation to run, whether CI is included, and whether TEA may install packages.
+- Framework: which operation to run, whether CI is included, how the stack and the dependencies are handled.
 - Test design: which epic to plan, and whether the risks, priorities and gates are right. A risk with no written gap behind it is not a risk. A product defect found by a test is for the developers to fix. TEA does not edit the app to make a test pass.
-- Automate: which story to cover, and what to do with a failing test. A failing test that points at the app is a finding, not something to hide.
+- Automate: which mode to run, and what to do with a failing test. A failing test that points at the app is a finding, not something to hide.
 
 ## Time box
 
@@ -35,24 +35,28 @@ Open this `qa` folder itself in VS Code (File > Open Folder), not the repository
 ### 1. Set up the test framework (assistant chat)
 
 ```text
-/bmad-tea-framework
+/bmad-tea-framework create
 ```
 
-It asks three things first. Answer:
+The first question is "Do you want CI too? Yes (framework and CI pipeline) or No (framework only)". Reply:
 
 ```text
-Create
+No, framework only
 ```
+
+A preflight may then stop and say that the fullstack backend check needs a manifest such as `pyproject.toml`, `pom.xml` or `go.mod`, and that this repo's backend is Node.js and has none. The options are 1. Treat the stack as Node/TypeScript fullstack and scaffold a Playwright E2E layer (recommended), 2. API only, 3. Stop. Reply:
 
 ```text
-No. Framework only.
+1
 ```
+
+Why: the install set the TEA stack to fullstack. Next it may ask how to handle dependencies, because `AGENTS.md` says not to run `npm install` in this folder. The options are 1. Playwright with playwright-utils, 2. Plain Playwright, 3. Scaffold files only. Reply:
 
 ```text
-Yes. Install it.
+2
 ```
 
-The three answers are: the operation (Create), "Do you want CI too?" (no, framework only) and the install consent for `@seontechnologies/playwright-utils`. TEA may run `npm install -D` in this folder. That is fine: `node_modules` is ignored by git, and the browser is already installed once at the repository root.
+Why: the packages are already installed once at the repository root, so plain Playwright needs nothing more. The result is a `playwright.config.ts` that starts the API and web servers, specs in `tests/e2e`, fixtures and helpers in `tests/support`, `tests/README.md`, `.env.example`, `.nvmrc` and a `test:e2e` script. Contract testing is skipped. The write-time hook is skipped on this host.
 
 ### 2. Check the framework
 
@@ -68,13 +72,25 @@ It lists the tests Playwright found. After `/bmad-tea-framework` these are the s
 /bmad-tea-test-design
 ```
 
-If it asks whether to make a system-level or an epic-level test design, answer:
+It first shows "[C] Create, [R] Resume, [V] Validate, [E] Edit". Reply:
 
 ```text
-B. Epic-level, for epic 1.
+C
 ```
 
-Read the plan it writes. Check that every risk quotes a statement from the epic, the plan, the review or the deferred work, and that the quality gates say P0 must pass 100%.
+Then it asks the scope, system-level or epic-level. Reply:
+
+```text
+Epic-level for epic 1
+```
+
+It may ask an open question about accessibility: the UX spec says WCAG 2.2 AA but names no tool or threshold, and asks if you want an axe scan added to the Playwright suite. Reply:
+
+```text
+Yes, add an axe scan (WCAG 2.2 AA)
+```
+
+This makes the accessibility check show up, with the known Scope 2 badge contrast finding in this folder. The plan is written to `_bmad-output/test-artifacts/test-design/test-design-epic-1.md`. Read it. Check that every risk quotes a statement from the epic, the plan, the review or the deferred work, and that the quality gates say P0 must pass 100%.
 
 ### 4. Write and run the tests (assistant chat)
 
@@ -82,13 +98,19 @@ Read the plan it writes. Check that every risk quotes a statement from the epic,
 /bmad-tea-automate
 ```
 
-If it asks which story, epic or feature to cover, answer:
+It shows "[C] Create, [R] Resume, [V] Validate, [E] Edit". Reply:
 
 ```text
-Story 1.1
+C
 ```
 
-It does not ask for a mode. It writes tests for the existing code, runs them and reports. If a test fails because of a real defect in the app, it reports the defect and leaves the app alone.
+The mode defaults to expand. Reply:
+
+```text
+Expand
+```
+
+It does not normally ask which story. If it does, answer `Story 1.1`. It writes tests for the existing code, runs them and reports. A failing test that points at a real defect in the app is reported, not hidden, and the app is left alone.
 
 ### 5. Run the API unit tests
 
@@ -111,7 +133,7 @@ npx playwright show-report
 ## What to check
 
 - `npm test` still passes with 13 tests. TEA keeps the existing suite.
-- `npm run test:e2e` runs the API tests and the browser tests. The reference run has 32 tests.
+- `npm run test:e2e` runs the API tests and the browser tests. Reference numbers: 13 Vitest and 32 Playwright tests. Yours will differ.
 - The test design lists each risk with probability, impact and score, and points each scored risk at one coverage row.
 - The automation summary says what was created, how many tests passed, which defects were found and what was left for later.
 - Nothing was hidden: a failing test is in the summary, not skipped.
@@ -120,14 +142,19 @@ npx playwright show-report
 
 Files created or changed (paths follow `_bmad/config.toml`):
 
-- `playwright.config.ts`, `tests/` (`api/`, `e2e/`, `support/`), `tests/README.md`, `.env.example`, `.nvmrc`
-- a rule that blocks `.only` and hard waits (the reference uses `tools/check-test-rules.mjs` and `.githooks/pre-commit`; with an assistant that has no tool hooks, TEA says it skipped its own hook)
+- `playwright.config.ts`, `tests/` (`e2e/`, `support/`, and `api/` if it writes API tests), `tests/README.md`, `.env.example`, `.nvmrc`
 - `package.json` scripts and `package-lock.json`
 - `_bmad-output/test-artifacts/framework/` with the setup checkpoints
 - `_bmad-output/test-artifacts/test-design/test-design-epic-1.md`
 - `_bmad-output/test-artifacts/automate/automation-summary-story-1-1.md`
 
-The reference output is `reference/qa-finished`. It also has `_bmad-output/test-artifacts/tea-run-summary.md`, a plain page with the measured numbers. It is a guide: a live run will differ in wording, in the tests it chooses and sometimes in the numbers.
+The reference output is `reference/qa-finished`. It also has `_bmad-output/test-artifacts/tea-run-summary.md`, a plain page with the measured numbers. It is a guide: a live run will differ in wording, in the tests it chooses and sometimes in the numbers. The rule that blocks `.only` and hard waits (`tools/check-test-rules.mjs`, `.githooks/pre-commit`) exists only in the reference folder. It was added by hand. TEA does not create it on this host.
+
+### What can differ in your run
+
+- Counts: the reference has 13 Vitest and 32 Playwright tests. The dry run had 17 and 8 without an axe check. Yours will differ.
+- Which questions appear: the preflight may or may not stop on the missing backend manifest, and the dependency and accessibility questions may be worded differently or not asked.
+- Whether the preflight halts: if it does, choose the recommended option and carry on.
 
 ## If you are stuck
 
