@@ -2,7 +2,7 @@
   "name": "carbon-hub-workshop",
   "private": true,
   "version": "1.0.0",
-  "description": "Shared install for the BMad workshop. The step folders use this node_modules, one level up.",
+  "description": "Shared install for the BMad workshop. The dev and qa folders use this node_modules, one level up.",
   "engines": {
     "node": ">=20"
   },
