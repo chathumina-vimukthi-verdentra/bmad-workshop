@@ -74,7 +74,7 @@ if exist "node_modules\vitest" if exist "node_modules\@playwright\test" if exist
   goto browser
 )
 echo Installing packages at the repository root. This takes a few minutes.
-call npm install --no-audit --no-fund
+call npm install --no-audit --no-fund --ignore-scripts
 if errorlevel 1 (
   echo.
   echo Stop: npm install failed. Check your internet connection and run this script again.
