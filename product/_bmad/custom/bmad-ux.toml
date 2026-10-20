@@ -1,0 +1,22 @@
+# Team override for bmad-ux in the product track. Arrays append to the skill's defaults.
+# It adds a Figma pull: the user gives a Figma link and the skill imports it, instead of drawing mockups.
+
+[workflow]
+
+persistent_facts = [
+  "When the user gives a figma.com/design link, Figma is the visual source for this run. Pull from it with the Figma MCP server; do not draw competing HTML mockups for screens that exist in Figma. Spines still win on conflict, and anything the Figma file does not cover is captured in conversation as usual.",
+]
+
+creative_tools = [
+  """tool:figma: Figma pull. Use when the user gives a figma.com/design link, during Discovery or before Finalize. Take the fileKey from the URL path and the node-id from the query, with - read as :. Then:
+  1. get_metadata on that node (or on the page when no node-id is given) to list the top-level frames. Show the frame names to the user and ask which frames are in scope.
+  2. For each frame in scope: get_screenshot, saved as {doc_workspace}/imports/figma/<nn>-<frame-slug>.png, and get_design_context, saved as {doc_workspace}/imports/figma/<nn>-<frame-slug>.md (the layout, the text and the components; keep the generated code only as reference).
+  3. get_variable_defs on the same node, saved as {doc_workspace}/imports/figma/variables.md.
+  4. Write {doc_workspace}/imports/figma/README.md with the link, the date, and one line per frame: its name, its node id and what it shows.
+  5. Log one memlog event per frame imported, and one decision naming the Figma link as the visual source.
+  Then read the imports back as the user's design: lift visual decisions (tokens, type, components) into DESIGN.md and behavior (steps, states, copy, IA) into EXPERIENCE.md. Where Figma conflicts with the PRD or with an inherited DESIGN.md, surface it and let the user decide; never resolve it silently. Imports stay in imports/ at Finalize; they are not promoted to mockups/.""",
+]
+
+design_handoffs = [
+  "Figma (https://www.figma.com): the designer works in Figma and gives the link. Pull it with the Figma creative tool into imports/figma/.",
+]

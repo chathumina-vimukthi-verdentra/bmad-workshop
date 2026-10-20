@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Factor library: Carbon Hub Lite prototype</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="app-header">
+  <div class="header-inner">
+    <div class="brand">
+      <svg class="leaf" width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path fill="#70AC46" d="M20 3C9 3 4 9 4 15c0 1.6.4 3 1.2 4.2C6 15 9 11.500 14 9.500 10.500 12 8 15.500 7.200 20.300c.9.500 2 .7 3.100.7C17 21 21 15 20 3z"/></svg>
+      <span class="brand-name">Carbon Hub Lite</span>
+    </div>
+    <nav class="tabs" role="tablist" aria-label="Main">
+      <a role="tab" href="#" id="tab-factors" aria-selected="true">Factors</a>
+    </nav>
+    <div class="org"><span class="org-name">Nair Logistics</span><span class="avatar" aria-label="Priya Nair">PN</span></div>
+  </div>
+</header>
+
+<main class="page">
+
+
+  <!-- Screen 1: Factor library (FAC) -->
+  <section id="screen-factors" class="screen">
+    <div class="page-head">
+      <h1 tabindex="-1">Factor library</h1>
+      <p class="lede">Emission factors are versioned. Each activity uses the factor that was current when it was recorded.</p>
+    </div>
+    <div class="notice notice-sample" role="note"><span class="ni" aria-hidden="true">!</span><span>Workshop sample values, not real emission factors.</span></div>
+    <div class="card">
+      <div class="toolbar">
+        <div class="field inline">
+          <label for="scope-filter">Scope</label>
+          <select id="scope-filter">
+            <option value="">All scopes</option>
+            <option value="1">Scope 1</option>
+            <option value="2">Scope 2</option>
+          </select>
+        </div>
+        <span class="count" id="factor-count" aria-live="polite">6 factors</span>
+      </div>
+      <div class="table-wrap">
+        <table class="data">
+          <thead><tr>
+            <th scope="col">Factor</th><th scope="col">Activity type</th><th scope="col">Unit</th>
+            <th scope="col" class="num">kgCO2e per unit</th><th scope="col">Scope</th><th scope="col">Version</th><th scope="col">Valid from</th>
+          </tr></thead>
+          <tbody id="factor-rows"></tbody>
+        </table>
+      </div>
+      <div class="empty" id="factor-empty" hidden>
+        <p>No factors match this filter.</p>
+        <button class="btn secondary" id="clear-filter" type="button">Clear filter</button>
+      </div>
+    </div>
+  </section>
+
+</main>
+<footer class="foot">Workshop sample values, not real emission factors. Carbon Hub Lite is a small workshop sample. This prototype shows the Factor library screen only.</footer>
+<script src="app.js"></script>
+</body>
+</html>

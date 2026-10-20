@@ -36,9 +36,13 @@ Cut in this order:
 2. Code review: run it to the triage list, then apply the reference patch.
 3. TEA Test design: read the reference test design (in `reference/qa-finished`) instead of running it.
 
+## Product track (separate demo)
+
+`product` is a planning-only copy of `dev`. It keeps the master PRD, the system spine and the Factor library initiative as a worked example, and adds an empty, active Onboarding initiative (`initiative-onb-onboarding`). The demo runs `/bmad-prd` and then `/bmad-ux`, and stops at the hand-over to development. Read `product/TRACK.md`.
+
 ## Open the right folder
 
-In VS Code use File > Open Folder and choose `dev` or `qa` itself. Do not open the repository root. The BMad skills are found in the folder you open, so opening the root hides them.
+In VS Code use File > Open Folder and choose `dev`, `qa` or `product` itself. Do not open the repository root. The BMad skills are found in the folder you open, so opening the root hides them.
 
 ## Before the session (once)
 
@@ -96,6 +100,7 @@ INSTALL.md       optional appendix: how BMad and TEA were installed
 package.json     the shared install (with package-lock.json); node_modules appears here
 dev/             Developer track: ticket 1.1 planned, not built
 qa/              QA track: ticket 1.1 built and reviewed
+product/         Product track: plan the Onboarding initiative up to its PRD and UX
 reference/       dev-finished and qa-finished, read-only guides
 scripts/         setup, verify, check-install, baseline lock, maintainers/
 ```
