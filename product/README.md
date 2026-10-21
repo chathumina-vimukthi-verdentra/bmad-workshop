@@ -1,32 +1,35 @@
 # Carbon Hub Lite: product track
 
-The planning half of Carbon Hub Lite: from a capability idea to a capability PRD and its UX, the way Carbon Hub is recommended to plan. It stops at the point where the work is handed to development.
+The planning half of Carbon Hub Lite: from an empty initiative to a capability PRD, its UX, its epic and its tickets, the way Carbon Hub is recommended to plan. It stops at the point where the work is handed to development.
 
 All emission factor numbers in this project are workshop sample values, not real emission factors.
 
 | What | Where |
 |---|---|
-| Master PRD (problem, release plan, CLT.NFR-n) | `_bmad-output/prd-carbon-lite/` |
-| System spine (AD-1 to AD-10) | `_bmad-output/architecture-carbon-lite/` |
-| Worked example, planned end to end: PRD, UX, then epic and tickets | `_bmad-output/initiative-fac-factor-library/` |
-| The shared design that every initiative inherits | `_bmad-output/initiative-fac-factor-library/ux-fac-factor-library/DESIGN.md` |
-| The initiative we plan live: Onboarding (ONB) | `_bmad-output/initiative-onb-onboarding/` (empty, active) |
+| Master PRD (problem, release plan, CLT.NFR-n) | `_bmad-output/prd-carbon-lite/` (given) |
+| System spine (AD-1 to AD-10) | `_bmad-output/architecture-carbon-lite/` (given) |
+| The initiative we plan live: Factor library (FAC) | `_bmad-output/initiative-fac-factor-library/` (empty, active) |
+| The answer key: the same initiative, finished | `../dev/_bmad-output/initiative-fac-factor-library/` |
 | BMad skills | `.agents/skills/` (already installed) |
 
 ## What the demo produces
 
 ```text
-_bmad-output/initiative-onb-onboarding/
-  initiative-onb-onboarding.md        already here, frontmatter only
-  prd-onb-onboarding/                 /bmad-prd
-    prd-onb-onboarding.md
+_bmad-output/initiative-fac-factor-library/
+  initiative-fac-factor-library.md    already here, frontmatter only; filled in by /bmad-ticket
+  prd-fac-factor-library/             /bmad-prd
+    prd-fac-factor-library.md
     .memlog.md
-  ux-onb-onboarding/                  /bmad-ux
-    ux-onb-onboarding.md
-    DESIGN.md
+  ux-fac-factor-library/              /bmad-ux, read live from the Figma link you give it
+    ux-fac-factor-library.md
+    DESIGN.md                         the shared design every screen inherits
     EXPERIENCE.md
-    mockups/
+    imports/figma/                    a PNG per Figma frame and a README with the link and node ids
     .memlog.md
+  tickets.toml                        /bmad-ticket: the epics, in build order
+  epic-browse-factors/                /bmad-ticket
+    epic-browse-factors.md
+    tickets.toml                      the tickets 1.1 and 1.2
 ```
 
 Read `TRACK.md` for the demo script.
@@ -36,12 +39,13 @@ Read `TRACK.md` for the demo script.
 | Step | Skill | Where |
 |---|---|---|
 | Master PRD and system spine | `/bmad-prd`, `/bmad-architecture` | given, at the store root |
-| Initiative | `/bmad` | given: `initiative-onb-onboarding` |
+| Initiative folder | `/bmad` | given: `initiative-fac-factor-library`, empty |
 | Capability PRD | `/bmad-prd` | **this folder, live** |
 | UX: DESIGN.md, EXPERIENCE.md, mockups | `/bmad-ux` | **this folder, live** |
+| Initiative, epics and tickets | `/bmad-ticket` | **this folder, live** |
 | Hand-over line | | |
-| Epics and tickets | `/bmad-ticket` | shown in the FAC example only |
-| Build, walkthrough, code review | `/bmad-build` and the rest | the `dev` folder |
+| Build, walkthrough, code review | `/bmad-build 1.1` and the rest | the `dev` folder |
+| Test framework, test design, automate | `/bmad-tea-*` | the `qa` folder |
 
 ## Run
 

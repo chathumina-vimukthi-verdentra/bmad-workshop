@@ -2,9 +2,9 @@
 
 Workshop sample values, not real emission factors.
 
-This is the product track: planning only. Write the capability PRD and the UX for the active initiative
-and stop. Do not create epics, tickets, plans or code here. The build rules below are context that the
-PRD and UX must respect, not work to do.
+This is the product track: planning only. Write the capability PRD, the UX, the epic and the tickets for
+the active initiative and stop. Do not write build plans or code here. The build rules below are context
+that the PRD, the UX and the tickets must respect, not work to do.
 
 - AD-1: Modules depend one way: footprint -> activities -> factors. No cycles. A module is reached
   only through its service interface. `modules.yaml` `may_call` lists the allowed dependencies.
