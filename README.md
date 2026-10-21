@@ -38,7 +38,7 @@ Cut in this order:
 
 ## Product track (separate demo)
 
-`product` is a planning-only copy of `dev`. It keeps the master PRD and the system spine, and empties the Factor library initiative (`initiative-fac-factor-library`) back to its frontmatter. The demo runs `/bmad-prd`, `/bmad-ux` and `/bmad-ticket` to plan it again from empty, and stops at the hand-over to `/bmad-build 1.1` in `dev`. The finished plan in `dev` is the answer key. Read `product/TRACK.md`.
+`product` is a planning-only copy of `dev`. It keeps the master PRD and the system spine, and empties the Factor library initiative (`initiative-fac-factor-library`) back to its frontmatter. The demo runs `/bmad-prd`, `/bmad-ux` and `/bmad-ticket` to plan it again from empty, and stops at the hand-over to `/bmad-build 1.1` in `dev`. The finished plan is in `dev`. Read `product/TRACK.md`.
 
 ## Open the right folder
 

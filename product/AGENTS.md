@@ -15,8 +15,7 @@ code here. That is the hand-over to `bmad-build`, which the `dev` folder shows.
 | FAC | `_bmad-output/initiative-fac-factor-library/` | factors | Active. Being planned: PRD, then UX, then epic and tickets |
 
 ACT and FPS are in the master PRD index, but their initiative folders are not in this copy. Do not
-recreate them here. Do not read `../dev`, `../qa` or `../reference`: they hold the finished plan, which is
-the presenter's answer key, not an input.
+recreate them here. Do not read `../dev`, `../qa` or `../reference`: they are other tracks, not inputs to this one.
 
 - Planning lives in `_bmad-output/`. Read only the active initiative's folder and the store-root
   documents.

@@ -9,7 +9,7 @@ All emission factor numbers in this project are workshop sample values, not real
 | Master PRD (problem, release plan, CLT.NFR-n) | `_bmad-output/prd-carbon-lite/` (given) |
 | System spine (AD-1 to AD-10) | `_bmad-output/architecture-carbon-lite/` (given) |
 | The initiative we plan live: Factor library (FAC) | `_bmad-output/initiative-fac-factor-library/` (empty, active) |
-| The answer key: the same initiative, finished | `../dev/_bmad-output/initiative-fac-factor-library/` |
+| The same initiative, as the developer track receives it | `../dev/_bmad-output/initiative-fac-factor-library/` |
 | BMad skills | `.agents/skills/` (already installed) |
 
 ## What the demo produces
